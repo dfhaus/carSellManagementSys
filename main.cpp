@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
 	srand((unsigned)time(NULL)); //用时间做种，每次产生随机数不一样
-	int number = rand() % 4;  //产生0-4的随机数
+	int number = rand() % 5;  //产生0-4的随机数
 	QPixmap pixmap;
 	/*int i=100；
 	//数字转QString
