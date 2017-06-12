@@ -13,7 +13,7 @@
 #include "qdom.h"
 #include <QDialog>
 
-//ÒÔÏÂ´úÂëÓÃÓÚ½â¾öÖĞÎÄ³öÏÖÂÒÂëÎÊÌâ
+//ä»¥ä¸‹ä»£ç ç”¨äºè§£å†³ä¸­æ–‡å‡ºç°ä¹±ç é—®é¢˜
 #if _MSC_VER >=1600
 #pragma execution_character_set("utf-8")
 #endif
@@ -34,9 +34,9 @@ static bool createConnection()
 	db.setHostName("192.168.1.105");
 	db.setDatabaseName(dsn);
 	db.setUserName("sa");
-	db.setPassword("123");
+	db.setPassword("123456");
 
-	//Êı¾İ¿âÎ´´ò¿ª£¬µ¯³öÌáÊ¾
+	//æ•°æ®åº“æœªæ‰“å¼€ï¼Œå¼¹å‡ºæç¤º
 	if (!db.open())
 	{
 		//qDebug() << db.lastError().text();
@@ -45,32 +45,32 @@ static bool createConnection()
 	}
 
 	QSqlQuery query;
-	//´´½¨³§¼Ò±í
+	//åˆ›å»ºå‚å®¶è¡¨
 	query.exec("create table factory(id varchar(4) primary key, name varchar(12))");
-	query.exec(QString("insert into factory(id, name) values('0', 'ÇëÑ¡Ôñ³§¼Ò')"));
-	query.exec(QString("insert into factory(id, name) values('1', 'Ò»Æû´óÖÚ')"));
-	query.exec(QString("insert into factory(id, name) values('2', '¶şÆûÉñÁú')"));
-	query.exec(QString("insert into factory(id, name) values('3', 'ÉÏº£´óÖÚ')"));
+	query.exec(QString("insert into factory(id, name) values('0', 'è¯·é€‰æ‹©å‚å®¶')"));
+	query.exec(QString("insert into factory(id, name) values('1', 'ä¸€æ±½å¤§ä¼—')"));
+	query.exec(QString("insert into factory(id, name) values('2', 'äºŒæ±½ç¥é¾™')"));
+	query.exec(QString("insert into factory(id, name) values('3', 'ä¸Šæµ·å¤§ä¼—')"));
 
-	//´´½¨Æ·ÅÆ±í
+	//åˆ›å»ºå“ç‰Œè¡¨
 	query.exec("create table brand(bid varchar(4) primary key, name varchar(8), factory  varchar(10), price int, sum int, sell int , last int)");
-	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('1', '°ÂµÏA6', 'Ò»Æû´óÖÚ', 36, 50, 10, 40)");
-	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('2', '½İ´ï', 'Ò»Æû´óÖÚ', 34, 20, 5, 15)");
-	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('3', '±¦À´', 'Ò»Æû´óÖÚ', 41, 80, 20, 60)");
-	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('4', '±¼³Û', 'Ò»Æû´óÖÚ', 83, 40, 15, 25)");
-	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('5', '±Ï¼ÓË÷', '¶şÆûÉñÁú', 39, 50, 15, 35)");
-	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('6', '¸»¿µ', '¶şÆûÉñÁú', 28, 60, 10, 50)");
-	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('7', '±êÖÂ307', '¶şÆûÉñÁú', 27, 70, 20, 50)");
-	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('8', 'É£ËşÄÉ', 'ÉÏº£´óÖÚ', 25, 75, 25, 50)");
-	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('9', 'ÅÁÈøÌØ', 'ÉÏº£´óÖÚ', 27, 65, 20, 45)");
-	//´´½¨ÃÜÂë±í
+	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('1', 'å¥¥è¿ªA6', 'ä¸€æ±½å¤§ä¼—', 36, 50, 10, 40)");
+	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('2', 'æ·è¾¾', 'ä¸€æ±½å¤§ä¼—', 34, 20, 5, 15)");
+	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('3', 'å®æ¥', 'ä¸€æ±½å¤§ä¼—', 41, 80, 20, 60)");
+	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('4', 'å¥”é©°', 'ä¸€æ±½å¤§ä¼—', 83, 40, 15, 25)");
+	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('5', 'æ¯•åŠ ç´¢', 'äºŒæ±½ç¥é¾™', 39, 50, 15, 35)");
+	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('6', 'å¯Œåº·', 'äºŒæ±½ç¥é¾™', 28, 60, 10, 50)");
+	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('7', 'æ ‡è‡´307', 'äºŒæ±½ç¥é¾™', 27, 70, 20, 50)");
+	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('8', 'æ¡‘å¡”çº³', 'ä¸Šæµ·å¤§ä¼—', 25, 75, 25, 50)");
+	query.exec("insert into brand(bid, name, factory, price, sum, sell, last) values('9', 'å¸•è¨ç‰¹', 'ä¸Šæµ·å¤§ä¼—', 27, 65, 20, 45)");
+	//åˆ›å»ºå¯†ç è¡¨
 	query.exec("create table adminuser(id varchar(8) primary key, password varchar(12))");
 	query.exec(QString("insert into adminuser(id, password) values('admin', '1')"));
 // 	query.exec(QString("insert into adminuser(id, password) values('root', '1')"));
 // 	query.exec(QString("insert into adminuser(id, password) values('admin', '123')"));
 // 	query.exec(QString("insert into adminuser(id, password) values('sa', '123')"));
 // 	query.exec(QString("insert into adminuser(id, password) values('hzg', '1')"));
-// 	query.exec(QString("insert into adminuser(id, password) values('»ÆÕı¹û', '1')"));
+// 	query.exec(QString("insert into adminuser(id, password) values('é»„æ­£æœ', '1')"));
 	return true;
 }
 
@@ -89,7 +89,7 @@ static bool createXml()
 	QDomProcessingInstruction instruction;
 	instruction = doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"UTF-8\"");
 	doc.appendChild(instruction);
-	QDomElement root = doc.createElement(QString("ÈÕÏúÊÛÇåµ¥"));
+	QDomElement root = doc.createElement(QString("æ—¥é”€å”®æ¸…å•"));
 	doc.appendChild(root);
 	QTextStream out(&file);
 	doc.save(out, 4);
