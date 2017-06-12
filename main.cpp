@@ -1,6 +1,6 @@
-//Ö÷º¯Êı£¬Ó¦ÓÃ³ÌĞòÈë¿Ú
+//ä¸»å‡½æ•°ï¼Œåº”ç”¨ç¨‹åºå…¥å£
 
-//ÒÔÏÂ´úÂëÓÃÓÚ½â¾öÖĞÎÄ³öÏÖÂÒÂëÎÊÌâ
+//ä»¥ä¸‹ä»£ç ç”¨äºè§£å†³ä¸­æ–‡å‡ºç°ä¹±ç é—®é¢˜
 #if _MSC_VER >=1600
 #pragma execution_character_set("utf-8")
 #endif
@@ -15,16 +15,16 @@
 #include <QSplashScreen>
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h> //Éú³ÉËæ»úÊı£¬ÓÃµ½ÁËtimeº¯Êı 
+#include <time.h> //ç”Ÿæˆéšæœºæ•°ï¼Œç”¨åˆ°äº†timeå‡½æ•° 
 
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
-	srand((unsigned)time(NULL)); //ÓÃÊ±¼ä×öÖÖ£¬Ã¿´Î²úÉúËæ»úÊı²»Ò»Ñù
-	int number = rand() % 4;  //²úÉú0-4µÄËæ»úÊı
+	srand((unsigned)time(NULL)); //ç”¨æ—¶é—´åšç§ï¼Œæ¯æ¬¡äº§ç”Ÿéšæœºæ•°ä¸ä¸€æ ·
+	int number = rand() % 4;  //äº§ç”Ÿ0-4çš„éšæœºæ•°
 	QPixmap pixmap;
-	/*int i=100£»
-	//Êı×Ö×ªQString
+	/*int i=100ï¼›
+	//æ•°å­—è½¬QString
 	QString s = QString::number(i);*/
 	QString s = QString::number(number);
 	pixmap.load("res/welcome"+s+".png");
@@ -42,9 +42,7 @@ int main(int argc, char *argv[])
 	
 	QSplashScreen splash(pixmap);
 	splash.show();
-	for (long i = 0; i < 100000000; i++);//ÏµÍ³¿ªÆôµÈ´ıÊ±¼ä,Ñ­»·Ò»ÒÚ´Î
-// 	CSMS w;
-// 	w.show();
+	for (long i = 0; i < 100000000; i++);//ç³»ç»Ÿå¼€å¯ç­‰å¾…æ—¶é—´,å¾ªç¯ä¸€äº¿æ¬¡
 	if (!createConnection() || !createXml()) return 0;
 	CSMS w;
 
@@ -55,23 +53,15 @@ int main(int argc, char *argv[])
 	{
 
 		w.show();
-		//splash.finish(&login);
 		return a.exec();
 	}
 	else
 	{
-		//splash.finish(&login);
 		return 0;
 	}
 
-	
-
-	
-	/*w.show();
-	return a.exec();*/
-	//return a.exec();
 }
-//Éú³É¿ªÆôÏµÍ³»¶Ó­Í¼Æ¬
+//ç”Ÿæˆå¼€å¯ç³»ç»Ÿæ¬¢è¿å›¾ç‰‡
 /*int main(int argc, char *argv[])
   {
   QApplication app(argc, argv);
